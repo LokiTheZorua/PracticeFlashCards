@@ -22,7 +22,7 @@ public class FlashcardFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("FlashCards");
-		this.setSize(100, 100);
+		this.setSize(700, 700);
 		this.setResizable(false);
 		
 		this.setVisible(true);

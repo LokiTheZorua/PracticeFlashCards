@@ -6,6 +6,9 @@ import flashcard.model.Flashcard;
 
 public class FlashcardController
 {
+	
+	private FlashcardFrame FlashcardFrame;
+	
 	public void start()
 	{
 		
