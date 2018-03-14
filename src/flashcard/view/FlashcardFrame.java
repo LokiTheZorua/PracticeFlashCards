@@ -2,12 +2,17 @@ package flashcard.view;
 
 import flashcard.controller.FlashcardController;
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+
+
 
 public class FlashcardFrame extends JFrame
 {
-
+	
 	private FlashcardController appController;
 	private FlashcardPanel appPanel;
+	
 	
 	public FlashcardFrame(FlashcardController appController)
 	{
@@ -22,7 +27,7 @@ public class FlashcardFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("FlashCards");
-		this.setSize(700, 700);
+		this.setSize(700, 450);
 		this.setResizable(false);
 		
 		this.setVisible(true);
