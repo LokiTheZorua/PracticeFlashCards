@@ -8,28 +8,51 @@ public class Flashcard
 	private List<String> answerList;
 	private int numberCorrrect;
 	
-	public Flashcards(String flashcardSet)
+	public Flashcard(String flashcardSet)
 	{
 		this.questionList = new ArrayList<String>();
 		this.answerList = new ArrayList<String>();
-		this.numberCorrrect = new int correctPercent();
+		
+		getCurrentQuestion();
 	}
+	
+	private int getCurrentQuestion()
+	{
+		int currentQuestion = (int) Math.random() * questionList.size();
+		
+		return currentQuestion;
+	}
+	
+	private void buildQuestionList()
+	{
+		
+	}
+	
 	
 	public int correctPercent()
 	{
+		int numberCorrect = 0;
+		
+		int currentQuestion = getCurrentQuestion();
+		
 		if (numberCorrect == 0)
 		{
-			if(questionList.indexOf(currentQuesiton) == answerList.indexOf(CurrentQuestion))
+			if(questionList.indexOf(currentQuestion) == answerList.indexOf(currentQuestion))
+			{
+				if(questionRight = false)
+				{
+					
+				}
+				else
+				{
+					numberCorrect = 100;
+				}
+			}
 		}
 		else
 		{
 			
 			
 		}
-	}
-	
-	public int currentQuestion()
-	{
-		return (int) (Math.random() * questionList.size());
 	}
 }

@@ -35,20 +35,15 @@ public class FlashcardPanel extends JPanel
 			}
 		});
 		answerField = new JTextField(20);
-		appLayout.putConstraint(SpringLayout.WEST, answerButton, 6, SpringLayout.EAST, answerField);
-		appLayout.putConstraint(SpringLayout.EAST, answerField, -319, SpringLayout.EAST, this);
+		
 		flashcardArea = new JTextArea();
-		appLayout.putConstraint(SpringLayout.NORTH, answerButton, 21, SpringLayout.SOUTH, flashcardArea);
-		appLayout.putConstraint(SpringLayout.WEST, answerField, 0, SpringLayout.WEST, flashcardArea);
+		
 		flashcardArea.setLineWrap(true);
 		flashcardArea.setEditable(false);
-		appLayout.putConstraint(SpringLayout.SOUTH, flashcardArea, -85, SpringLayout.SOUTH, this);
+		
 		correctNumberArea = new JTextArea();
 		correctNumberArea.setEditable(false);
-		appLayout.putConstraint(SpringLayout.NORTH, correctNumberArea, 0, SpringLayout.NORTH, answerButton);
-		appLayout.putConstraint(SpringLayout.WEST, correctNumberArea, 17, SpringLayout.EAST, answerButton);
-		appLayout.putConstraint(SpringLayout.SOUTH, correctNumberArea, 0, SpringLayout.SOUTH, answerButton);
-		appLayout.putConstraint(SpringLayout.EAST, correctNumberArea, 0, SpringLayout.EAST, flashcardArea);
+		
 		
 		setupPanel();
 		setupLayout();
@@ -70,6 +65,15 @@ public class FlashcardPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, flashcardArea, 29, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, flashcardArea, 82, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, flashcardArea, -95, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.WEST, answerButton, 6, SpringLayout.EAST, answerField);
+		appLayout.putConstraint(SpringLayout.EAST, answerField, -319, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, answerButton, 21, SpringLayout.SOUTH, flashcardArea);
+		appLayout.putConstraint(SpringLayout.WEST, answerField, 0, SpringLayout.WEST, flashcardArea);
+		appLayout.putConstraint(SpringLayout.SOUTH, flashcardArea, -85, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, correctNumberArea, 0, SpringLayout.NORTH, answerButton);
+		appLayout.putConstraint(SpringLayout.WEST, correctNumberArea, 17, SpringLayout.EAST, answerButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, correctNumberArea, 0, SpringLayout.SOUTH, answerButton);
+		appLayout.putConstraint(SpringLayout.EAST, correctNumberArea, 0, SpringLayout.EAST, flashcardArea);
 	}
 	
 }

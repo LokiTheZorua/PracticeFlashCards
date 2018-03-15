@@ -7,11 +7,16 @@ import flashcard.model.Flashcard;
 public class FlashcardController
 {
 	private FlashcardFrame appFrame;
-	private FlashCard flashcard;
+	private Flashcard flashcard;
 	
 	public FlashcardController()
 	{
-		flashcard = new FlashCard("This");
+		flashcard = new Flashcard("This");
+	}
+	
+	public int currentQuestion()
+	{
+		
 	}
 	
 	public void start()
