@@ -40,6 +40,7 @@ public class FlashcardPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, answerField, -319, SpringLayout.EAST, this);
 		
 		flashcardArea = new JTextArea();
+		flashcardArea.setEditable(false);
 		appLayout.putConstraint(SpringLayout.WEST, answerField, 0, SpringLayout.WEST, flashcardArea);
 		
 		flashcardArea.setLineWrap(true);

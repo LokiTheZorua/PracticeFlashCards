@@ -6,9 +6,9 @@ public class Flashcard
 {
 	private List<String> questionList;
 	private List<String> answerList;
-	private String answer;
 	private int questionsAnswered = 0;
 	private int correctAnswers = 0;
+	private String answer;
 	
 	public Flashcard(String flashcardSet)
 	{
@@ -17,7 +17,10 @@ public class Flashcard
 		
 		getCurrentQuestion();
 		buildQuestionList();
+		buildAnswerList();
+		
 	}
+	
 	
 	private int getCurrentQuestion()
 	{
