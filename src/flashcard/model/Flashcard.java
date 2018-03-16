@@ -6,7 +6,9 @@ public class Flashcard
 {
 	private List<String> questionList;
 	private List<String> answerList;
-	private int numberCorrrect;
+	private String answer;
+	private int questionsAnswered = 0;
+	private int correctAnswers = 0;
 	
 	public Flashcard(String flashcardSet)
 	{
@@ -14,6 +16,7 @@ public class Flashcard
 		this.answerList = new ArrayList<String>();
 		
 		getCurrentQuestion();
+		buildQuestionList();
 	}
 	
 	private int getCurrentQuestion()
@@ -25,34 +28,44 @@ public class Flashcard
 	
 	private void buildQuestionList()
 	{
-		
+		questionList.add("what is 2+ 2");
+		questionList.add("What color is the sun?");
+		questionList.add("How many fingers and thumbs do you have");
+	}
+	
+	private void buildAnswerList()
+	{
+		answerList.add("2");
+		answerList.add("Yellow");
+		answerList.add("10");
 	}
 	
 	
 	public int correctPercent()
 	{
-		int numberCorrect = 0;
+		int correctPercent;
+		
+		boolean questionRight = false;
 		
 		int currentQuestion = getCurrentQuestion();
 		
-		if (numberCorrect == 0)
+		if(answer == answerList.get(currentQuestion))
 		{
-			if(questionList.indexOf(currentQuestion) == answerList.indexOf(currentQuestion))
-			{
-				if(questionRight = false)
-				{
-					
-				}
-				else
-				{
-					numberCorrect = 100;
-				}
-			}
+			questionRight = true;
 		}
 		else
 		{
-			
-			
+			questionRight = false;
 		}
+		
+		if(questionRight = true)
+		{
+			correctAnswers++;
+			
+			questionRight = false;
+		}
+		correctPercent = correctAnswers / questionsAnswered;
+		
+		return correctPercent;
 	}
 }

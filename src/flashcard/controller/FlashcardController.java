@@ -14,11 +14,6 @@ public class FlashcardController
 		flashcard = new Flashcard("This");
 	}
 	
-	public int currentQuestion()
-	{
-		
-	}
-	
 	public void start()
 	{
 		appFrame = new FlashcardFrame(this);
