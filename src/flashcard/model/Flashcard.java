@@ -50,14 +50,25 @@ public class Flashcard
 		}
 	}
 	
-	public double correctPercent()
+	public double correctPercent(boolean correct)
 	{
 		int answersCorrect = 0;
 		int questionsAnswered = 0;
 		
+		questionsAnswered++;
 		
-		answersCorrect++;
+		if (correct = true)
+			{
+				answersCorrect++;
+			}
 		
 		return answersCorrect / questionsAnswered;
+	}
+	
+	public int getQuestionListSize()
+	{
+		int questionSize = questionList.size();
+		
+		return questionSize;
 	}
 }

@@ -81,8 +81,7 @@ public class FlashcardPanel extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				String answer = answerField.getText();
-				Boolean usedAnswer = appController.useFlashcards(answer);
-				flashcardArea.append(answer);
+				appController.useFlashcards(answer);
 				answerField.setText("");
 			}
 		});
