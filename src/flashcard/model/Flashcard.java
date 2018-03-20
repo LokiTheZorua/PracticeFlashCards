@@ -6,21 +6,16 @@ public class Flashcard
 {
 	private List<String> questionList;
 	private List<String> answerList;
-	private int questionsAnswered = 0;
-	private int correctAnswers = 0;
-	private String answer;
 	
 	public Flashcard(String flashcardSet)
 	{
 		this.questionList = new ArrayList<String>();
 		this.answerList = new ArrayList<String>();
-		
 		getCurrentQuestion();
 		buildQuestionList();
 		buildAnswerList();
 		
 	}
-	
 	
 	private int getCurrentQuestion()
 	{
@@ -43,32 +38,26 @@ public class Flashcard
 		answerList.add("10");
 	}
 	
-	
-	public int correctPercent()
+	public boolean checkCorrectAnswer(String answer)
 	{
-		int correctPercent;
-		
-		boolean questionRight = false;
-		
-		int currentQuestion = getCurrentQuestion();
-		
-		if(answer == answerList.get(currentQuestion))
+		if (answer == answerList.get(getCurrentQuestion()))
 		{
-			questionRight = true;
+			return true;
 		}
 		else
 		{
-			questionRight = false;
+			return false;
 		}
+	}
+	
+	public double correctPercent()
+	{
+		int answersCorrect = 0;
+		int questionsAnswered = 0;
 		
-		if(questionRight = true)
-		{
-			correctAnswers++;
-			
-			questionRight = false;
-		}
-		correctPercent = correctAnswers / questionsAnswered;
 		
-		return correctPercent;
+		answersCorrect++;
+		
+		return answersCorrect / questionsAnswered;
 	}
 }

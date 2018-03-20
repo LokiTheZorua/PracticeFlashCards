@@ -30,10 +30,7 @@ public class FlashcardPanel extends JPanel
 		this.appController = appController;
 		appLayout = new SpringLayout();
 		answerButton = new JButton("answer");
-		answerButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		answerField = new JTextField(20);
 		appLayout.putConstraint(SpringLayout.WEST, answerButton, 6, SpringLayout.EAST, answerField);
 		appLayout.putConstraint(SpringLayout.NORTH, answerField, 0, SpringLayout.NORTH, answerButton);
@@ -52,6 +49,7 @@ public class FlashcardPanel extends JPanel
 		
 		setupPanel();
 		setupLayout();
+		setupListeners();
 	}
 	
 	private void setupPanel()
@@ -76,5 +74,17 @@ public class FlashcardPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, correctNumberArea, 0, SpringLayout.SOUTH, answerButton);
 		appLayout.putConstraint(SpringLayout.EAST, correctNumberArea, 0, SpringLayout.EAST, flashcardArea);
 	}
-	
+	private void setupListeners()
+	{
+		answerButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				String answer = answerField.getText();
+				Boolean usedAnswer = appController.useFlashcards(answer);
+				flashcardArea.append(answer);
+				answerField.setText("");
+			}
+		});
+	}
 }

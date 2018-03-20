@@ -12,6 +12,8 @@ public class FlashcardController
 	public FlashcardController()
 	{
 		flashcard = new Flashcard("This");
+		
+		
 	}
 	
 	public void start()
@@ -19,5 +21,13 @@ public class FlashcardController
 		appFrame = new FlashcardFrame(this);
 	}
 	
+	public boolean useFlashcards(String answer)
+	{
+		boolean correct;
+		
+		correct = flashcard.checkCorrectAnswer(answer);
+		
+		return correct;
+	}
 	
 }
