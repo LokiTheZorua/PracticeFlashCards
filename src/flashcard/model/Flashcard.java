@@ -6,6 +6,7 @@ public class Flashcard
 {
 	private List<String> questionList;
 	private List<String> answerList;
+	private boolean correct;
 	
 	public Flashcard(String flashcardSet)
 	{
@@ -42,15 +43,17 @@ public class Flashcard
 	{
 		if (answer == answerList.get(getCurrentQuestion()))
 		{
+			correct = true;
 			return true;
 		}
 		else
 		{
+			correct = false;
 			return false;
 		}
 	}
 	
-	public double correctPercent(boolean correct)
+	public double correctPercent()
 	{
 		int answersCorrect = 0;
 		int questionsAnswered = 0;
@@ -71,4 +74,6 @@ public class Flashcard
 		
 		return questionSize;
 	}
+	
+	
 }

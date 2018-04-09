@@ -9,10 +9,6 @@ import java.awt.event.ActionEvent;
 
 public class FlashcardPanel extends JPanel
 {
-	
-	
-	
-	
 	private SpringLayout appLayout;
 	private FlashcardController appController;
 	private JButton answerButton;
@@ -85,5 +81,19 @@ public class FlashcardPanel extends JPanel
 				answerField.setText("");
 			}
 		});
+	}
+	
+	public void talkWithUser(String message)
+	{
+		flashcardArea.append(message);
+	}
+	
+	private double getPercent()
+	{
+		double percent;
+		
+		percent = appController.transferPercent();
+		
+		return percent;
 	}
 }

@@ -27,14 +27,16 @@ public class FlashcardController
 		
 		correct = flashcard.checkCorrectAnswer(answer);
 		
-		flashcard.correctPercent(correct);
+		flashcard.correctPercent();
+	}
+	
+	public double transferPercent()
+	{
+		double percent;
 		
+		percent = flashcard.correctPercent();
 		
-		
-		if (questionsAnswered == flashcard.getQuestionListSize())
-		{
-			if (flashcard = 100)
-		}
+		return percent;
 	}
 	
 }
