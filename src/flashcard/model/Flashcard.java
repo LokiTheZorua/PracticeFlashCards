@@ -6,22 +6,15 @@ public class Flashcard
 {
 	private List<String> questionList;
 	private List<String> answerList;
+	int questionNumber;
 	
 	public Flashcard(String flashcardSet)
 	{
 		this.questionList = new ArrayList<String>();
 		this.answerList = new ArrayList<String>();
-		getCurrentQuestion();
 		buildQuestionList();
 		buildAnswerList();
 		
-	}
-	
-	private int getCurrentQuestion()
-	{
-		int currentQuestion = (int) Math.random() * questionList.size();
-		
-		return currentQuestion;
 	}
 	
 	private void buildQuestionList()
@@ -38,9 +31,22 @@ public class Flashcard
 		answerList.add("10");
 	}
 	
+	public String getCurrentQuestion()
+	{
+		int currentQuestion = (int) (Math.random() * questionList.size());
+		
+		questionNumber =  currentQuestion;
+		
+		String question;
+		
+		question = questionList.get(currentQuestion);
+		
+		return question;
+	}
+	
 	public boolean checkCorrectAnswer(String answer)
 	{
-		if (answer == answerList.get(getCurrentQuestion()))
+		if (answer == answerList.get(questionNumber))
 		{
 			return true;
 		}
