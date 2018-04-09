@@ -6,11 +6,7 @@ public class Flashcard
 {
 	private List<String> questionList;
 	private List<String> answerList;
-<<<<<<< HEAD
-	private boolean correct;
-=======
 	int questionNumber;
->>>>>>> f917dff6cfe90b760bfe3dd847598d777fbc1646
 	
 	public Flashcard(String flashcardSet)
 	{
@@ -18,14 +14,22 @@ public class Flashcard
 		this.answerList = new ArrayList<String>();
 		buildQuestionList();
 		buildAnswerList();
+		buildCurrentQuestionNumber();
+	}
+	
+	public void buildCurrentQuestionNumber()
+	{
+		int currentQuestion = (int) (Math.random() * questionList.size());
 		
+		questionNumber =  currentQuestion;
 	}
 	
 	private void buildQuestionList()
 	{
-		questionList.add("what is 2 + 2");
-		questionList.add("What color is the sun?");
-		questionList.add("How many fingers and thumbs do you have");
+		questionList.add("what is 2 + 2? ");
+		questionList.add("What color is the sun? ");
+		questionList.add("How many fingers and thumbs do you have? ");
+		questionList.add("What is the 26th letter in the alphabet? ");
 	}
 	
 	private void buildAnswerList()
@@ -33,35 +37,15 @@ public class Flashcard
 		answerList.add("4");
 		answerList.add("Yellow");
 		answerList.add("10");
+		answerList.add("z");
 	}
-	
-<<<<<<< HEAD
-	public boolean checkCorrectAnswer(String answer)
-	{
-		if (answer == answerList.get(getCurrentQuestion()))
-		{
-			correct = true;
-			return true;
-		}
-		else
-		{
-			correct = false;
-			return false;
-		}
-	}
-	
-	public double correctPercent()
-=======
+
 	public String getCurrentQuestion()
->>>>>>> f917dff6cfe90b760bfe3dd847598d777fbc1646
+
 	{
-		int currentQuestion = (int) (Math.random() * questionList.size());
-		
-		questionNumber =  currentQuestion;
-		
 		String question;
 		
-		question = questionList.get(currentQuestion);
+		question = questionList.get(questionNumber);
 		
 		return question;
 	}
@@ -73,13 +57,9 @@ public class Flashcard
 		return questionSize;
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public String getAnswer()
 	{
 		return answerList.get(questionNumber);
 	}
-	
->>>>>>> f917dff6cfe90b760bfe3dd847598d777fbc1646
-	
 }

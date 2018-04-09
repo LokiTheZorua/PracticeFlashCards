@@ -16,6 +16,9 @@ public class FlashcardPanel extends JPanel
 	private JTextField answerField;
 	private JTextArea flashcardArea;
 	private JTextArea correctNumberArea;
+	private int currentQuestioned = 0;
+	private int correctQuestioned = 0;
+	private boolean correct;
 	
 	
 	
@@ -56,7 +59,14 @@ public class FlashcardPanel extends JPanel
 		
 		question = appController.presentQuestion();
 		
-		flashcardArea.setText(question);
+		if (flashcardArea.equals(""))
+		{
+			flashcardArea.setText(question);
+		}
+		else
+		{
+			flashcardArea.append(question);
+		}
 	}
 	
 	
@@ -89,31 +99,41 @@ public class FlashcardPanel extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				String answer = answerField.getText();
+				
 				answerField.setText("");
 				
-				if (answer.toLowerCase() == appController.getAnswer().toLowerCase())
+				if (answer.toLowerCase().equals(appController.getAnswer().toLowerCase()))
 				{
-					flashcardArea.append("correct");
+					flashcardArea.append(" correct \n");
+					correct = true;
 				}
 				else
 				{
-					flashcardArea.append("Wrong");
+					flashcardArea.append(" Wrong \n");
+					correct = false;
 				}
+				
+				correctNumberArea.setText(calculatePercent());
+				
+				appController.askNextQuestion();
+				
+				flashcardArea.append(appController.presentQuestion());
+				
 			}
 		});
 	}
 	
-	public void talkWithUser(String message)
-	{
-		flashcardArea.append(message);
-	}
-	
-	private double getPercent()
-	{
-		double percent;
+	private String calculatePercent()
+	{	
+		currentQuestioned++;
 		
-		percent = appController.transferPercent();
+		if (correct)
+		{
+			correctQuestioned++;
+		}
 		
-		return percent;
+		
+		
+		return (correctQuestioned * 100 / currentQuestioned) + "%";
 	}
 }

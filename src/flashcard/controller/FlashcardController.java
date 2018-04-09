@@ -27,23 +27,7 @@ public class FlashcardController
 	
 	public String presentQuestion()
 	{
-<<<<<<< HEAD
-		boolean correct;
-		questionsAnswered++;
-		
-		correct = flashcard.checkCorrectAnswer(answer);
-		
-		flashcard.correctPercent();
-	}
-	
-	public double transferPercent()
-	{
-		double percent;
-		
-		percent = flashcard.correctPercent();
-		
-		return percent;
-=======
+
 		String thisQuestion;
 		
 		thisQuestion = flashcard.getCurrentQuestion();
@@ -63,7 +47,13 @@ public class FlashcardController
 	public String getAnswer()
 	{
 		return flashcard.getAnswer();
->>>>>>> f917dff6cfe90b760bfe3dd847598d777fbc1646
 	}
 	
+	
+	public void askNextQuestion()
+	{
+		flashcard.buildCurrentQuestionNumber();
+		
+		presentQuestion();
+	}
 }
