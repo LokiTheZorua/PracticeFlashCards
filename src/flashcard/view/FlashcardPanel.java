@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
+
 public class FlashcardPanel extends JPanel
 {
 	private SpringLayout appLayout;
@@ -37,7 +38,6 @@ public class FlashcardPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, answerField, 0, SpringLayout.WEST, flashcardArea);
 		
 		flashcardArea.setLineWrap(true);
-		flashcardArea.setEditable(false);
 		
 		correctNumberArea = new JTextArea();
 		correctNumberArea.setEditable(false);
@@ -46,7 +46,19 @@ public class FlashcardPanel extends JPanel
 		setupPanel();
 		setupLayout();
 		setupListeners();
+		showQuestion();
 	}
+	
+	
+	public void showQuestion()
+	{
+		String question;
+		
+		question = appController.presentQuestion();
+		
+		flashcardArea.setText(question);
+	}
+	
 	
 	private void setupPanel()
 	{
@@ -77,8 +89,16 @@ public class FlashcardPanel extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				String answer = answerField.getText();
-				appController.useFlashcards(answer);
 				answerField.setText("");
+				
+				if (answer.toLowerCase() == appController.getAnswer().toLowerCase())
+				{
+					flashcardArea.append("correct");
+				}
+				else
+				{
+					flashcardArea.append("Wrong");
+				}
 			}
 		});
 	}
