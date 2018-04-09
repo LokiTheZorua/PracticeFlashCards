@@ -34,14 +34,18 @@ public class FlashcardController
 		return thisQuestion;
 	}
 	
-	public void useFlashcards(String answer)
+//	public int questionNumber()
+//	{
+//		int current;
+//		
+//		current = flashcard.showCurrentQuestion();
+//		
+//		return current;
+//	}
+	
+	public String getAnswer()
 	{
-		boolean correct;
-		questionsAnswered++;
-		
-		correct = flashcard.checkCorrectAnswer(answer);
-		
-		flashcard.correctPercent(correct);
+		return flashcard.getAnswer();
 	}
 	
 }

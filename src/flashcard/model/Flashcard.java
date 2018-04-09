@@ -19,14 +19,14 @@ public class Flashcard
 	
 	private void buildQuestionList()
 	{
-		questionList.add("what is 2+ 2");
+		questionList.add("what is 2 + 2");
 		questionList.add("What color is the sun?");
 		questionList.add("How many fingers and thumbs do you have");
 	}
 	
 	private void buildAnswerList()
 	{
-		answerList.add("2");
+		answerList.add("4");
 		answerList.add("Yellow");
 		answerList.add("10");
 	}
@@ -44,37 +44,17 @@ public class Flashcard
 		return question;
 	}
 	
-	public boolean checkCorrectAnswer(String answer)
-	{
-		if (answer == answerList.get(questionNumber))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	public double correctPercent(boolean correct)
-	{
-		int answersCorrect = 0;
-		int questionsAnswered = 0;
-		
-		questionsAnswered++;
-		
-		if (correct = true)
-			{
-				answersCorrect++;
-			}
-		
-		return answersCorrect / questionsAnswered;
-	}
-	
 	public int getQuestionListSize()
 	{
 		int questionSize = questionList.size();
 		
 		return questionSize;
 	}
+	
+	public String getAnswer()
+	{
+		return answerList.get(questionNumber);
+	}
+	
+	
 }

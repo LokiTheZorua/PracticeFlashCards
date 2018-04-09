@@ -93,8 +93,16 @@ public class FlashcardPanel extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				String answer = answerField.getText();
-				appController.useFlashcards(answer);
 				answerField.setText("");
+				
+				if (answer.toLowerCase() == appController.getAnswer().toLowerCase())
+				{
+					flashcardArea.append("correct");
+				}
+				else
+				{
+					flashcardArea.append("Wrong");
+				}
 			}
 		});
 	}
