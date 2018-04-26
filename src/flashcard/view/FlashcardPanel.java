@@ -92,6 +92,7 @@ public class FlashcardPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, correctNumberArea, 0, SpringLayout.SOUTH, answerButton);
 		appLayout.putConstraint(SpringLayout.EAST, correctNumberArea, 0, SpringLayout.EAST, flashcardArea);
 	}
+	// Start Abstraction
 	private void setupListeners()
 	{
 		answerButton.addActionListener(new ActionListener() 
@@ -131,7 +132,7 @@ public class FlashcardPanel extends JPanel
 			}
 		});
 	}
-	
+	//end abstraction
 	private String calculatePercent()
 	{	
 		currentQuestioned++;
