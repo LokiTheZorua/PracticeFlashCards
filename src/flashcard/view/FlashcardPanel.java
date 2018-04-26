@@ -98,27 +98,36 @@ public class FlashcardPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				
+				
 				String answer = answerField.getText();
 				
-				answerField.setText("");
-				
-				if (answer.toLowerCase().equals(appController.getAnswer().toLowerCase()))
+				if(answer.isEmpty() || answer.equals(""))
 				{
-					flashcardArea.append(" correct \n");
-					correct = true;
+					flashcardArea.append("\n Hey! This is empty! Please put something in it! \n");
 				}
 				else
 				{
-					flashcardArea.append(" Wrong \n");
-					correct = false;
+					
+					answerField.setText("");
+				
+					if (answer.toLowerCase().equals(appController.getAnswer().toLowerCase()))
+					{
+						flashcardArea.append(" correct \n");
+						correct = true;
+					}
+					else
+					{
+						flashcardArea.append(" Wrong \n");
+						correct = false;
+					}
+				
+					correctNumberArea.setText(calculatePercent());
+				
+					appController.askNextQuestion();
+				
+					flashcardArea.append(appController.presentQuestion());
 				}
-				
-				correctNumberArea.setText(calculatePercent());
-				
-				appController.askNextQuestion();
-				
-				flashcardArea.append(appController.presentQuestion());
-				
 			}
 		});
 	}
